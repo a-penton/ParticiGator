@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import SingleTour from 'C:/Users/robin/Work/SeniorProject/AwesomeProject/SingleTour.js'
+import ActivityPage from 'C:/Users/robin/Work/SeniorProject/AwesomeProject/ActivityPage.js'
 
 import {
   StyleSheet,
@@ -28,20 +28,49 @@ export default function App() {
         />
       </View>);
   };
-  const HomeScreen = ({navigation, route}) => {
+
+  const HomeScreen =({navigation, route}) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     return (
-      <View>
-        <Text>Go to profile</Text>
+      <View style={styles.container}>
+        <StatusBar style="auto" />
+        <Text style={styles.header_text}>Welcome to ParticiGator</Text>
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="Email."
+            placeholderTextColor="#003f5c"
+            onChangeText={(email) => setEmail(email)}
+          /> 
+        </View> 
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="Password."
+            placeholderTextColor="#003f5c"
+            secureTextEntry={true}
+            onChangeText={(password) => setPassword(password)}
+          /> 
+        </View> 
+        <TouchableOpacity>
+          <Text style={styles.forgot_button}>Forgot Password?</Text> 
+        </TouchableOpacity> 
+        {/* <TouchableOpacity style={styles.loginBtn}>
+          <Text style={styles.loginText}>LOGIN</Text> 
+        </TouchableOpacity>  */}
         <Button
-          title="Go to Profile"
+          style={styles.loginText}
+          title="LOGIN"
           onPress={() =>
             //navigation.navigate('Profile', {name: 'Robin', id: "oops"})
-            navigation.navigate('SingleTour', {item: 2} )
+            navigation.navigate('ActivityPage', {item: email} )
           }
       />
-      </View>
+  
+      </View> 
     );
-  };
+  }
 
   return (
     <NavigationContainer>
@@ -58,9 +87,9 @@ export default function App() {
           options={{title: 'Profile'}}
         />
         <Stack.Screen 
-          name="SingleTour" 
-          component={SingleTour}
-          options={{title: 'Single Tour!'}}
+          name="ActivityPage" 
+          component={ActivityPage}
+          options={{title: 'Activity!'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
