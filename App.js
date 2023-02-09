@@ -1,36 +1,9 @@
-/* import { StatusBar } from 'expo-status-bar';
-import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  Button,
-  TouchableOpacity,
-} from "react-native";
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Andrew is the BEST!!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ff0',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
- */
-
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import SingleTour from 'C:/Users/robin/Work/SeniorProject/AwesomeProject/SingleTour.js'
+
 import {
   StyleSheet,
   Text,
@@ -40,38 +13,57 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-export default function App() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Text style={styles.header_text}>Welcome to ParticiGator</Text>
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)}
-        /> 
-      </View> 
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Password."
-          placeholderTextColor="#003f5c"
-          secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
-        /> 
-      </View> 
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text> 
-      </TouchableOpacity> 
-      <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText}>LOGIN</Text> 
-      </TouchableOpacity> 
 
-    </View> 
+export default function App() {
+  const Stack = createNativeStackNavigator();
+  const ProfileScreen = ({navigation, route}) => {
+    return (
+      <View>
+        <Text>This is {route.params.name}'s profile</Text>
+        <Button
+          title="Go Home"
+          onPress={() =>
+            navigation.navigate('Home', {name: 'Hi'})
+          }
+        />
+      </View>);
+  };
+  const HomeScreen = ({navigation, route}) => {
+    return (
+      <View>
+        <Text>Go to profile</Text>
+        <Button
+          title="Go to Profile"
+          onPress={() =>
+            //navigation.navigate('Profile', {name: 'Robin', id: "oops"})
+            navigation.navigate('SingleTour', {item: 2} )
+          }
+      />
+      </View>
+    );
+  };
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          id="Robin"
+          component={HomeScreen}
+          options={{title: 'Welcome'}}
+        />
+        <Stack.Screen 
+          name="Profile" 
+          component={ProfileScreen}
+          options={{title: 'Profile'}}
+        />
+        <Stack.Screen 
+          name="SingleTour" 
+          component={SingleTour}
+          options={{title: 'Single Tour!'}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
