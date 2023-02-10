@@ -28,6 +28,13 @@ export default function App() {
         />
       </View>);
   };
+  const Wrapper = ({navigation, route}) => {
+    return (
+      <View>
+        <Text>Helloooooo {route.params.name}</Text>
+        <ActivityPage item={route.params.name}></ActivityPage>
+      </View>);
+  };
 
   const HomeScreen =({navigation, route}) => {
     const [email, setEmail] = useState("");
@@ -54,19 +61,21 @@ export default function App() {
           /> 
         </View> 
         <TouchableOpacity>
-          <Text style={styles.forgot_button}>Forgot Password?</Text> 
+          <Text style={styles.forgot_button}>{email}</Text> 
         </TouchableOpacity> 
         {/* <TouchableOpacity style={styles.loginBtn}>
           <Text style={styles.loginText}>LOGIN</Text> 
         </TouchableOpacity>  */}
-        <Button
-          style={styles.loginText}
-          title="LOGIN"
+        <TouchableOpacity 
+          style={styles.loginBtn}
           onPress={() =>
             //navigation.navigate('Profile', {name: 'Robin', id: "oops"})
-            navigation.navigate('ActivityPage', {item: email} )
-          }
-      />
+            navigation.navigate('Wrapper', {item: email} )
+        }>
+          <Button
+            style={styles.loginText}
+            title="LOGIN"/>
+          </TouchableOpacity> 
   
       </View> 
     );
@@ -87,8 +96,9 @@ export default function App() {
           options={{title: 'Profile'}}
         />
         <Stack.Screen 
-          name="ActivityPage" 
-          component={ActivityPage}
+          name="Wrapper" 
+          component={Wrapper}
+          initialParams={{item:'value'}}
           options={{title: 'Activity!'}}
         />
       </Stack.Navigator>

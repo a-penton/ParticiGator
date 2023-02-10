@@ -14,7 +14,7 @@ export default class ActivityPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      item : this.props.navigation.name
+      item : this.props.item
     }
     //this.onClick = this.onClick.bind(this); 
   }
@@ -22,7 +22,7 @@ export default class ActivityPage extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello {this.state.item}!</Text>
+        <Text>Hello {this.item}!</Text>
       </View>
     );
   }
