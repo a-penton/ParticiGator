@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import ActivityPage from 'C:/Users/robin/Work/SeniorProject/AwesomeProject/ActivityPage.js'
+import {ActivityPage} from './components/ActivityPage.js'
 
 import {
   StyleSheet,
@@ -28,13 +28,13 @@ export default function App() {
         />
       </View>);
   };
-  const Wrapper = ({navigation, route}) => {
-    return (
-      <View>
-        <Text>Helloooooo {route.params.name}</Text>
-        <ActivityPage item={route.params.name}></ActivityPage>
-      </View>);
-  };
+  // const Wrapper = ({navigation, route}, props) => {
+  //   return (
+  //     <View>
+  //       <Text>Inside wrapper</Text>
+  //       <ActivityPage item="Robin"/* {route.params.item} */></ActivityPage>
+  //     </View>);
+  // }; 
 
   const HomeScreen =({navigation, route}) => {
     const [email, setEmail] = useState("");
@@ -70,7 +70,7 @@ export default function App() {
           style={styles.loginBtn}
           onPress={() =>
             //navigation.navigate('Profile', {name: 'Robin', id: "oops"})
-            navigation.navigate('Wrapper', {item: email} )
+            navigation.navigate('ActivityPage', {item: email} )
         }>
           <Button
             style={styles.loginText}
@@ -96,8 +96,8 @@ export default function App() {
           options={{title: 'Profile'}}
         />
         <Stack.Screen 
-          name="Wrapper" 
-          component={Wrapper}
+          name="ActivityPage" 
+          component={ActivityPage}
           initialParams={{item:'value'}}
           options={{title: 'Activity!'}}
         />
