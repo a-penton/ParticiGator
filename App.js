@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {ActivityPage} from './components/ActivityPage.js'
+import ActivityPage from './components/ActivityPage.js'
 
 import {
   StyleSheet,
@@ -34,6 +34,28 @@ export default function App() {
   //       <Text>Inside wrapper</Text>
   //       <ActivityPage item="Robin"/* {route.params.item} */></ActivityPage>
   //     </View>);
+
+  {/* <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          id="Robin"
+          component={HomeScreen}
+          options={{title: 'Welcome'}}
+        />
+        <Stack.Screen 
+          name="Profile" 
+          component={ProfileScreen}
+          options={{title: 'Profile'}}
+        />
+        <Stack.Screen 
+          name="ActivityPage" 
+          component={ActivityPage}
+          initialParams={{item:'value'}}
+          options={{title: 'Activity!'}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer> */}
   // }; 
 
   const HomeScreen =({navigation, route}) => {
@@ -82,27 +104,10 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          id="Robin"
-          component={HomeScreen}
-          options={{title: 'Welcome'}}
-        />
-        <Stack.Screen 
-          name="Profile" 
-          component={ProfileScreen}
-          options={{title: 'Profile'}}
-        />
-        <Stack.Screen 
-          name="ActivityPage" 
-          component={ActivityPage}
-          initialParams={{item:'value'}}
-          options={{title: 'Activity!'}}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View>
+      <ActivityPage item="Robin"></ActivityPage>
+    </View>
+
   );
 }
 
