@@ -14,32 +14,50 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+function handleSubmit(name, password) {
+  console.log('Name: ', name);
+  console.log('Password: ', password)
+}
+
 export default function App() {
   const Stack = createNativeStackNavigator();
-  const ProfileScreen = ({navigation, route}) => {
-    const item = 'Drew';
 
+  const ProfileScreen = ({navigation, route}, props) => {
+    const {username} = route.params;
     return (
       <View>
-        <Text>This is my profile</Text>
-        <Button
-          title="Go Home"
-          onPress={() =>
-            navigation.navigate('ActivityPage', {item})
-          }
-        />
+        <Text>This is {username}'s profile</Text>
+        <View style={styles.loginBtn}>
+          <Button
+            title="Sign Out"
+            onPress={() =>
+              navigation.navigate('Home', {})
+            }
+          />
+        </View>
       </View>);
   };
+
   const Wrapper = ({navigation, route}, props) => {
-    const {item} = route.params;
+    const {username, password} = route.params;
     return (
       <View>
-        <Text>Inside wrapper</Text>
-        <ActivityPage item={item}/* {route.params.item} */></ActivityPage>
+        <ActivityPage username={username} password={password}></ActivityPage>
+        <View style={styles.loginBtn}>
+          <Button
+            title="Go to Profile"
+            onPress={() =>
+              navigation.navigate('Profile', {username: username})
+            }
+          />
+        </View>
       </View>);
   }
 
   const HomeScreen = ({navigation, route}, props) => {
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+
     return (
       <View style={styles.container}>
         <StatusBar style="auto" />
@@ -47,85 +65,36 @@ export default function App() {
         <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
-            placeholder="Email."
+            value={name}
+            onChangeText={setName}
+            placeholder="Name."
             placeholderTextColor="#003f5c"
           /> 
         </View> 
         <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
+            value={password}
+            onChangeText={setPassword}
             placeholder="Password."
             placeholderTextColor="#003f5c"
             secureTextEntry={true}
           /> 
         </View> 
-        <TouchableOpacity>
-          <Text style={styles.forgot_button}>Oops</Text> 
-        </TouchableOpacity> 
-        {/* <TouchableOpacity style={styles.loginBtn}>
-          <Text style={styles.loginText}>LOGIN</Text> 
-        </TouchableOpacity>  */}
-        <TouchableOpacity 
-          style={styles.loginBtn}
-        >
+        <View style={styles.loginBtn}>
           <Button
-            style={styles.loginText}
             title="LOGIN"
-            onPress={() =>
-              navigation.navigate('ActivityPage', {item: 'Robin'})
+            onPress={() => 
+              { handleSubmit(name, password);
+                navigation.navigate('ActivityPage', {username: name, password: password})}
           }/>
-          </TouchableOpacity> 
+        </View>
   
       </View> 
     );
   }
-
-    // return (
-    //   <View style={styles.container}>
-    //     <StatusBar style="auto" />
-    //     <Text style={styles.header_text}>Welcome to ParticiGator</Text>
-    //     <View style={styles.inputView}>
-    //       <TextInput
-    //         style={styles.TextInput}
-    //         placeholder="Email."
-    //         placeholderTextColor="#003f5c"
-    //         onChangeText={(email) => setEmail(email)}
-    //       /> 
-    //     </View> 
-    //     <View style={styles.inputView}>
-    //       <TextInput
-    //         style={styles.TextInput}
-    //         placeholder="Password."
-    //         placeholderTextColor="#003f5c"
-    //         secureTextEntry={true}
-    //         onChangeText={(password) => setPassword(password)}
-    //       /> 
-    //     </View> 
-    //     <TouchableOpacity>
-    //       <Text style={styles.forgot_button}>{email}</Text> 
-    //     </TouchableOpacity> 
-    //     {/* <TouchableOpacity style={styles.loginBtn}>
-    //       <Text style={styles.loginText}>LOGIN</Text> 
-    //     </TouchableOpacity>  */}
-    //     <TouchableOpacity 
-    //       style={styles.loginBtn}
-    //       onPress={() =>
-    //         //navigation.navigate('Profile', {name: 'Robin', id: "oops"})
-    //         navigation.navigate('ActivityPage', {item: email} )
-    //     }>
-    //       <Button
-    //         style={styles.loginText}
-    //         title="LOGIN"/>
-    //       </TouchableOpacity> 
-  
-    //   </View> 
-    // );
-  // }
-
+ 
   return (
-    // <View>
-    //   <ActivityPage item="Robin"></ActivityPage>
-    // </View>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen

@@ -12,10 +12,8 @@ import {
 const ActivityPage = (props) => {
   return (
     <View style={styles.container}>
-         <View style={styles.rectangle} />
-        <Text>Inside activity</Text>
-        <Text>Hello {props.item}!</Text>
-        <View style={styles.rectangle} />
+          <Text>Username: {props.username}</Text>
+          <Text>Password: {props.password}</Text>
     </View>
   );
 };
