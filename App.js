@@ -19,22 +19,6 @@ import {
 
 export default function App() {
   const Stack = createNativeStackNavigator();
-
-  const ActivityWrapper = ({navigation, route}, props) => {
-    const {username, password} = route.params;
-    return (
-      <View>
-        <ActivityPage username={username} password={password}></ActivityPage>
-        <View style={ComponentStyles.loginBtn}>
-          <Button
-            title="Go to Profile"
-            onPress={() =>
-              navigation.navigate('Profile', {username: username})
-            }
-          />
-        </View>
-      </View>);
-  }
  
   return (
       <NavigationContainer>
@@ -52,8 +36,7 @@ export default function App() {
           />
           <Stack.Screen 
             name="ActivityPage" 
-            component={ActivityWrapper}
-            initialParams={{item:'value'}}
+            component={ActivityPage}
             options={{title: 'Activity!'}}
           />
         </Stack.Navigator>

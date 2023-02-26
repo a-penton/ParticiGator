@@ -8,12 +8,23 @@ import {
     Button,
     TouchableOpacity,
   } from "react-native";
+  import ComponentStyles from '../ComponentStyles';
 
-const ActivityPage = (props) => {
+const ActivityPage = ({navigation, route}, props) => {
+  const {username, password} = route.params;
+
   return (
     <View style={styles.container}>
-          <Text>Username: {props.username}</Text>
-          <Text>Password: {props.password}</Text>
+          <Text>Username: {username}</Text>
+          <Text>Password: {password}</Text>
+          <View style={ComponentStyles.loginBtn}>
+            <Button
+              title="Go to Profile"
+              onPress={() =>
+                navigation.navigate('Profile', {username: username})
+              }
+            />
+          </View>
     </View>
   );
 };
