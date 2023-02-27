@@ -14,7 +14,7 @@ const ActivityPage = ({navigation, route}, props) => {
   const {username, password} = route.params;
 
   return (
-    <View style={styles.container}>
+    <View style={ComponentStyles.container}>
           <Text>Username: {username}</Text>
           <Text>Password: {password}</Text>
           <View style={ComponentStyles.loginBtn}>
@@ -28,19 +28,5 @@ const ActivityPage = ({navigation, route}, props) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
-  },
-  rectangle: {
-    width: 200,
-    height: 100,
-    backgroundColor: 'red',
-    borderRadius: 10,
-  },
-});
 
 export default ActivityPage;

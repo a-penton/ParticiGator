@@ -25,7 +25,6 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen
             name="Home"
-            id="Robin"
             component={HomeScreen}
             options={{title: 'Welcome'}}
           /> 
@@ -37,7 +36,7 @@ export default function App() {
           <Stack.Screen 
             name="ActivityPage" 
             component={ActivityPage}
-            options={{title: 'Activity!'}}
+            options={{title: 'Activity'}}
           />
         </Stack.Navigator>
       </NavigationContainer>

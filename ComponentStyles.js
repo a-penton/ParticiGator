@@ -43,6 +43,12 @@ const styles = StyleSheet.create({
       marginTop: 40,
       backgroundColor: "#FF1493",
     },
+    rectangle: {
+      width: 200,
+      height: 100,
+      backgroundColor: 'red',
+      borderRadius: 10,
+    },
   });
 
   export default styles;
