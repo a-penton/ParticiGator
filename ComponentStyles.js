@@ -1,25 +1,27 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+    // Screen 
     container: {
       flex: 1,
       backgroundColor: "#fff",
       alignItems: "center",
       justifyContent: "center",
     },
+    // Gator image
     image: {
       width: 120,
       height: 80,
-      // borderRaduis: 18,
-      //marginBottom: 40,
-      //marginBottom: 40,
     },
+    // Welcome to ParticiGator Text
     header_text: {
       height: 40,
       color: "#000000",
       fontSize: '28%',
       fontWeight: 'bold',
     },
+
+    // Instructions for entering passcode
     instruction_text: {
       height: 90,
       width: 300,
@@ -44,6 +46,8 @@ const styles = StyleSheet.create({
       height: 30,
       marginBottom: 30,
     },
+
+    // Login button
     loginBtn: {
       width: "80%",
       borderRadius: 25,
@@ -53,11 +57,36 @@ const styles = StyleSheet.create({
       marginTop: 40,
       backgroundColor: "#466AFF",
     },
+
+    // Rectangle ?
     rectangle: {
       width: 200,
       height: 100,
       backgroundColor: 'red',
       borderRadius: 10,
+    },
+
+    // All styles for passcode entering functionality
+    hiddenCodeInput: {
+      position: 'absolute',
+      height: 0,
+      width: 0,
+      opacity: 0,
+    },
+    inputsContainer: {
+      width: '60%',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    inputContainer: {
+      borderColor: '#cccccc',
+      borderWidth: 2,
+      borderRadius: 4,
+      padding: 12,
+    },
+    inputText: {
+      fontSize: 24,
+      fontFamily: 'Menlo-Regular',
     },
   });
 
