@@ -6,7 +6,8 @@ import ActivityPage from './components/ActivityPage.js'
 import ProfileScreen from './components/ProfileScreen.js'
 import HomeScreen from './components/HomeScreen.js'
 import ComponentStyles from './ComponentStyles';
-// Adding comment
+
+
 import {
   StyleSheet,
   Text,
@@ -26,7 +27,7 @@ export default function App() {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{title: 'Welcome'}}
+            options={{headerShown: false}}
           /> 
           <Stack.Screen 
             name="Profile" 

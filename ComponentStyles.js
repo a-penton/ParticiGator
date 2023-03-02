@@ -8,13 +8,23 @@ const styles = StyleSheet.create({
       justifyContent: "center",
     },
     image: {
-      marginBottom: 40,
+      width: 120,
+      height: 80,
+      // borderRaduis: 18,
+      //marginBottom: 40,
+      //marginBottom: 40,
     },
     header_text: {
-      height: 50,
+      height: 40,
       color: "#000000",
-      fontSize: '30%',
+      fontSize: '28%',
       fontWeight: 'bold',
+    },
+    instruction_text: {
+      height: 90,
+      width: 300,
+      color: "#000000",
+      fontSize: '15%',
     },
     inputView: {
       backgroundColor: "#FFC0CB",
@@ -41,7 +51,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
       marginTop: 40,
-      backgroundColor: "#FF1493",
+      backgroundColor: "#466AFF",
     },
     rectangle: {
       width: 200,
