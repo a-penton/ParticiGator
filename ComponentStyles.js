@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
       width: 120,
       height: 80,
     },
-    // Welcome to ParticiGator Text
+    // Welcome to ParticiGator text
     header_text: {
       height: 40,
       color: "#000000",
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
 
-    // Instructions for entering passcode
+    // Instructions text
     instruction_text: {
       height: 90,
       width: 300,
@@ -58,11 +58,11 @@ const styles = StyleSheet.create({
       backgroundColor: "#466AFF",
     },
 
-    // Rectangle ?
+    // Rectangle for spacing
     rectangle: {
-      width: 200,
-      height: 100,
-      backgroundColor: 'red',
+      width: "80%",
+      height: "3%",
+      backgroundColor: 'white',
       borderRadius: 10,
     },
 
@@ -73,11 +73,13 @@ const styles = StyleSheet.create({
       width: 0,
       opacity: 0,
     },
+    
     inputsContainer: {
       width: '60%',
       flexDirection: 'row',
       justifyContent: 'space-between',
     },
+    
     inputContainer: {
       borderColor: '#cccccc',
       borderWidth: 2,

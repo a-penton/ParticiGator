@@ -15,43 +15,52 @@ import ComponentStyles from '../ComponentStyles';
 // Passcode length
 const CODE_LENGTH = 4;
 
-
-
-function handleSubmit(name, password) {
-    console.log('Name: ', name);
-    console.log('Password: ', password)
-}
+// Might not need anymore 
+// function handleSubmit(name, password) {
+//     console.log('Name: ', name);
+//     console.log('Password: ', password)
+// }
 
 // Adds gator icon 
 const gatorImage = require('./../assets/images/gator-icon.png');
 
 const HomeScreen = ({navigation, route}, props) => {
+
+    // This is the passcode to be sent to the database
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
 
-    // This is the passcode to be sent to the database
-    const [code, setCode] = useState('');
-    // This is just to helo make the passcode section pretty
+  
+    // This is just to help make the passcode section pretty
     const [containerIsFocused, setContainerIsFocused] = useState(false);
 
     // All logic for passcode
     // Citation: https://thoughtbot.com/blog/make-a-snazzy-code-input-in-react-native
-    const codeDigitsArray = new Array(CODE_LENGTH).fill(0);
-    const ref = useRef(null);
-    const handleOnPress = () => {
+    const codeDigitsArrayName = new Array(CODE_LENGTH).fill(0);
+    const codeDigitsArrayPassword = new Array(CODE_LENGTH).fill(0);
+  
+    const refName = useRef(null);
+    const refPassword = useRef(null);
+    
+    const handleOnPressName = () => {
       setContainerIsFocused(true);
-      ref?.current?.focus();
+      refName?.current?.focus();
     };
+    const handleOnPressPassword = () => {
+      setContainerIsFocused(true);
+      refPassword?.current?.focus();
+    };
+    
     const handleOnBlur = () => {
       setContainerIsFocused(false);
     };
-    const toDigitInput = (_value, idx) => {
+    const toDigitInputName = (_value, idx) => {
       const emptyInputChar = ' ';
-      const digit = code[idx] || emptyInputChar;
+      const digit = name[idx] || emptyInputChar;
 
-      const isCurrentDigit = idx === code.length;
+      const isCurrentDigit = idx === name.length;
       const isLastDigit = idx === CODE_LENGTH - 1;
-      const isCodeFull = code.length === CODE_LENGTH;
+      const isCodeFull = name.length === CODE_LENGTH;
 
       const isFocused = isCurrentDigit || (isLastDigit && isCodeFull);
 
@@ -66,7 +75,27 @@ const HomeScreen = ({navigation, route}, props) => {
         </View>
       );
     };
-    
+    const toDigitInputPassword = (_value, idx) => {
+      const emptyInputChar = ' ';
+      const digit = password[idx] || emptyInputChar;
+
+      const isCurrentDigit = idx === password.length;
+      const isLastDigit = idx === CODE_LENGTH - 1;
+      const isCodeFull = password.length === CODE_LENGTH;
+
+      const isFocused = isCurrentDigit || (isLastDigit && isCodeFull);
+
+      const containerStyle =
+      containerIsFocused && isFocused
+        ? {...ComponentStyles.inputContainer, ...ComponentStyles.inputContainerFocused}
+        : ComponentStyles.inputContainer;
+  
+      return (
+        <View key={idx} style={containerStyle}>
+          <Text style={ComponentStyles.inputText}>{digit}</Text>
+        </View>
+      );
+    };  
 
     return (
       // Screen 
@@ -98,13 +127,31 @@ const HomeScreen = ({navigation, route}, props) => {
             secureTextEntry={true}
           /> 
         </View>  */}
-        <Pressable style={ComponentStyles.inputsContainer} onPress={handleOnPress}>
-        {codeDigitsArray.map(toDigitInput)}
+        <Pressable style={ComponentStyles.inputsContainer} onPress={handleOnPressName}>
+        {codeDigitsArrayName.map(toDigitInputName)}
         </Pressable>
         <TextInput
-        ref = {ref}
-        value={code}
-        onChangeText={setCode}
+        ref = {refName}
+        value={name}
+        onChangeText={setName}
+        onSubmitEditing={handleOnBlur}
+        autoCorrect="false"
+        spellCheck="false"
+        autoCapitalize="characters"
+        keyboardType="visible-password"
+        returnKeyType="done"
+        textContentType="oneTimeCode"
+        maxLength={CODE_LENGTH}
+        style={ComponentStyles.hiddenCodeInput}
+        />
+        <View style={ComponentStyles.rectangle}></View>
+        <Pressable style={ComponentStyles.inputsContainer} onPress={handleOnPressPassword}>
+        {codeDigitsArrayPassword.map(toDigitInputPassword)}
+        </Pressable>
+        <TextInput
+        ref={refPassword}
+        value={password}
+        onChangeText={setPassword}
         onSubmitEditing={handleOnBlur}
         keyboardType="number-pad"
         returnKeyType="done"
@@ -118,10 +165,10 @@ const HomeScreen = ({navigation, route}, props) => {
             color= "#fff"
             onPress={() => 
               { //handleSubmit(name, password);
-                navigation.navigate('ActivityPage', {username: name, password: code})}
+                navigation.navigate('ActivityPage', {username: name, password: password})}
           }/>
         </View>
-  
+        
       </View> 
     );
   }

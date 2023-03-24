@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useRef } from 'react';
 import {
     StyleSheet,
     Text,
@@ -7,6 +7,7 @@ import {
     TextInput,
     Button,
     TouchableOpacity,
+    Pressable,
   } from "react-native";
   import ComponentStyles from '../ComponentStyles';
 
@@ -25,6 +26,7 @@ const ActivityPage = ({navigation, route}, props) => {
               }
             />
           </View>
+
     </View>
   );
 };
