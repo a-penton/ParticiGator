@@ -8,6 +8,12 @@ const styles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
     },
+    container_activity: {
+      flex: 1,
+      backgroundColor: "#fff",
+      //alignItems: "center",
+      justifyContent: "center",
+    },
     // Gator image
     image: {
       width: 120,
@@ -19,6 +25,15 @@ const styles = StyleSheet.create({
       color: "#000000",
       fontSize: '28%',
       fontWeight: 'bold',
+    },
+    activity_header_text: {
+      height: 40,
+      color: "#000000",
+      fontSize: '28%',
+      fontWeight: 'bold',
+      textAlign: 'left',
+      left: "5%",
+
     },
 
     // Instructions text

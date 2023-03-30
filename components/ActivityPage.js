@@ -15,17 +15,18 @@ const ActivityPage = ({navigation, route}, props) => {
   const {username, password} = route.params;
 
   return (
-    <View style={ComponentStyles.container}>
-          <Text>Username: {username}</Text>
-          <Text>Password: {password}</Text>
-          <View style={ComponentStyles.loginBtn}>
+    <View style={ComponentStyles.container_activity}>
+          <Text style={ComponentStyles.activity_header_text}>Welcome back, {username}!</Text>
+          {/* <Text>Username: {username}</Text> */}
+          {/* <Text>Password: {password}</Text> */}
+          {/* <View style={ComponentStyles.loginBtn}>
             <Button
               title="Go to Profile"
               onPress={() =>
                 navigation.navigate('Profile', {username: username})
               }
             />
-          </View>
+          </View> */}
 
     </View>
   );
