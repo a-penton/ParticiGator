@@ -28,6 +28,10 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "env": "prod",
+      "apiUrl": "http://10.136.10.227:3000"
     }
   }
 }

@@ -10,12 +10,14 @@ import {
     TouchableOpacity,
   } from "react-native";
 import ComponentStyles from '../ComponentStyles';
+import UsersList from './UsersList.js'
 
 const ProfileScreen = ({navigation, route}, props) => {
     const {username} = route.params;
     return (
       <View>
         <Text>This is {username}'s profile</Text>
+        <UsersList/>
         <View style={ComponentStyles.loginBtn}>
           <Button
             title="Sign Out"
