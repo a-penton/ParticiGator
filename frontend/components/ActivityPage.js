@@ -10,6 +10,7 @@ import {
     Pressable,
   } from "react-native";
   import ComponentStyles from '../ComponentStyles';
+import UsersList from './UsersList';
 
 const ActivityPage = ({navigation, route}, props) => {
   const {username, password} = route.params;
@@ -23,6 +24,7 @@ const ActivityPage = ({navigation, route}, props) => {
             <Text style={ComponentStyles.question_text}>What is the name of the imbalance shown here? What is the name of the imbalance shown here?
             What is the name of the imbalance shown here? What is the name of the imbalance shown here? What is the name of the imbalance shown here?</Text>
           </View>
+          <UsersList/>
           {/* <Text>Username: {username}</Text> */}
           {/* <Text>Password: {password}</Text> */}
           {/* <View style={ComponentStyles.loginBtn}>
