@@ -25,16 +25,16 @@ const styles = StyleSheet.create({
       height: 80,
     },
     // images for questions
-    other_images:{
+    question_image:{
       width: 200,
       height: 200,
     },
     // view for images for questions
-    other_images_view:{
+    question_image_view:{
       top: 20,
       width: "90%",
-      height: 200,
-      backgroundColor: "green",
+      // height: 200,
+      // backgroundColor: "green",
       // borderRadius: 10,
       // textAlign: 'left',
       left: "5%",
@@ -43,13 +43,17 @@ const styles = StyleSheet.create({
     },
 
     answers_view:{
-      top: 10,
+      top: 20,
       width: "90%",
-      height: 200,
-      backgroundColor: "red",
+      // height: 400,
+      alignItems: "center",
+      
+      // backgroundColor: "red",
       // borderRadius: 10,
       // textAlign: 'left',
       left: "5%",
+      // textAlignVertical:2,
+      // textAlign: "center",
       
     },
 
@@ -131,7 +135,7 @@ const styles = StyleSheet.create({
     blue_text_box: {
       marginTop: 10,
       width: "90%",
-      height: 200,
+      // height: question_text.height,
       backgroundColor: "#466AFF",
       borderRadius: 10,
       textAlign: 'left',
@@ -156,12 +160,13 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
     question_text: {
-      top: 50,
-      height: 80,
+      // top: 50,
+      // height: 80,
       width: "90%",
       color: "#FFFFFF",
       fontSize: '16%',
       left: "5%",
+      paddingVertical: 50,
 
     },
 

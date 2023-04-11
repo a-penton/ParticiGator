@@ -31,11 +31,20 @@ const ActivityPage = ({navigation, route}, props) => {
             <Text style={ComponentStyles.question_text}>What is the name of the imbalance shown here? What is the name of the imbalance shown here?
             What is the name of the imbalance shown here? What is the name of the imbalance shown here? What is the name of the imbalance shown here?</Text> */}
           </View>
-          <View style={ComponentStyles.other_images_view}>
-          <Image source={currentQuestion.image} style={ComponentStyles.other_images} />
+          <View style={ComponentStyles.question_image_view}>
+          <Image source={currentQuestion.image} style={ComponentStyles.question_image} />
           </View>
 
           <View style={ComponentStyles.answers_view}>
+            {currentQuestion?.options.map((item, i) => (
+              <View style={{backgroundColor: "#F4F4F4", padding: 20, border: 3, borderRadius: 20, marginTop: 15, width: "80%", alignItems: "center",}}>
+                <Text>{item.options}</Text>
+                <Text style= {{fontSize: "16%"}}>{item.answer}</Text>
+              </View>
+              
+
+
+            ))}
           </View>
 
           <View style={ComponentStyles.answers_view_2}>
