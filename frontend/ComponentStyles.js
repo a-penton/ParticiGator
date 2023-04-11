@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
 
 const styles = StyleSheet.create({
     // Home Screen 
@@ -12,14 +12,60 @@ const styles = StyleSheet.create({
     // Activity Screen
     container_activity: {
       flex: 1,
+      paddingTop: StatusBar.currentHeight,
       backgroundColor: "#fff",
       //alignItems: "center",
-      justifyContent: "center",
+      // justifyContent: "center",
+      // marginTop: "5%",
     },
+    
     // Gator image
     image: {
       width: 120,
       height: 80,
+    },
+    // images for questions
+    question_image:{
+      width: 200,
+      height: 200,
+    },
+    // view for images for questions
+    question_image_view:{
+      top: 20,
+      width: "90%",
+      // height: 200,
+      // backgroundColor: "green",
+      // borderRadius: 10,
+      // textAlign: 'left',
+      left: "5%",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+
+    answers_view:{
+      top: 20,
+      width: "90%",
+      // height: 400,
+      alignItems: "center",
+      
+      // backgroundColor: "red",
+      // borderRadius: 10,
+      // textAlign: 'left',
+      left: "5%",
+      // textAlignVertical:2,
+      // textAlign: "center",
+      
+    },
+
+    answers_view_2:{
+      top: 50,
+      width: "90%",
+      height: 200,
+      backgroundColor: "blue",
+      // borderRadius: 10,
+      // textAlign: 'left',
+      left: "5%",
+      
     },
     // Welcome to ParticiGator text
     header_text: {
@@ -37,6 +83,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       textAlign: 'left',
       left: "5%",
+      marginTop: 50,
 
     },
 
@@ -86,37 +133,41 @@ const styles = StyleSheet.create({
 
     // Blue rectangle for activity page
     blue_text_box: {
+      marginTop: 10,
       width: "90%",
-      height: "30%",
+      // height: question_text.height,
       backgroundColor: "#466AFF",
       borderRadius: 10,
       textAlign: 'left',
       left: "5%",
+      
     },   
     
     white_text_1: {
-      height: "13%",
+      top: 10,
+      height: 25,
       color: "#FFFFFF",
       fontSize: '18%',
-      top: "5%",
-      left: "3%",
+      left: "5%",
     },
     white_text_2: {
-      height: "40%",
+      top: 10,
+      height: 30,
+      width: "90%",
       color: "#FFFFFF",
       fontSize: '28%',
-      top: "5%",
-      left: "3%",
+      left: "5%",
       fontWeight: 'bold',
     },
     question_text: {
-      height: "95%",
-      width: "97%",
-      color: "#000000",
+      // top: 50,
+      // height: 80,
+      width: "90%",
+      color: "#FFFFFF",
       fontSize: '16%',
-      top: "5%",
-      left: "3%",
-      // right: "3%",
+      left: "5%",
+      paddingVertical: 50,
+
     },
 
 

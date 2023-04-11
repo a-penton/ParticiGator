@@ -37,7 +37,7 @@ export default function App() {
           <Stack.Screen 
             name="ActivityPage" 
             component={ActivityPage}
-            options={{title: 'Activity'}}
+            options={{headerShown: false}}
           />
         </Stack.Navigator>
       </NavigationContainer>
