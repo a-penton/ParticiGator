@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
     },
 
+    // view options
     answers_view:{
       top: 20,
       width: "90%",
@@ -57,16 +58,49 @@ const styles = StyleSheet.create({
       
     },
 
-    answers_view_2:{
-      top: 50,
+    // submit/enter code 
+    enter_code_submit_view:{
+      top: 70,
       width: "90%",
       height: 200,
-      backgroundColor: "blue",
+      // backgroundColor: "blue",
       // borderRadius: 10,
       // textAlign: 'left',
       left: "5%",
       
     },
+
+    space_view:{
+      top: 70,
+      width: "90%",
+      height: 200,
+      // backgroundColor: "blue",
+      // borderRadius: 10,
+      // textAlign: 'left',
+      left: "5%",
+      
+    },
+
+    code_input_view:{
+      backgroundColor: "#F4F4F4",
+      height: 50,
+      borderRadius: 10,
+      width: "100%",
+      fontSize: "20%",
+      padding: 15,
+
+    },
+
+    // submitButton: {
+    //   // width: "100%",
+    //   borderRadius: 10,
+    //   height: 50,
+    //   // justifyContent: "center",
+    //   // marginTop: 40,
+    //   backgroundColor: "#466AFF",
+    //   fontSize: "20%",
+    //   padding: 30,
+    // },
     // Welcome to ParticiGator text
     header_text: {
       height: 40,
@@ -142,7 +176,7 @@ const styles = StyleSheet.create({
       left: "5%",
       
     },   
-    
+    // Today's Question
     white_text_1: {
       top: 10,
       height: 25,
@@ -150,6 +184,8 @@ const styles = StyleSheet.create({
       fontSize: '18%',
       left: "5%",
     },
+
+    // Question topic 
     white_text_2: {
       top: 10,
       height: 30,
@@ -159,6 +195,8 @@ const styles = StyleSheet.create({
       left: "5%",
       fontWeight: 'bold',
     },
+
+    // Question
     question_text: {
       // top: 50,
       // height: 80,
