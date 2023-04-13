@@ -28,6 +28,7 @@ export default [
         ],
         correctAnswerIndex: 0,
         image: require('./../assets/images/example1.png'),
+        explanation: "In the diagram the root has a right child and the root's right child also has a right child so this is a right-right imbalance. A left roation will be used to fix this imbalance."
 
 
 

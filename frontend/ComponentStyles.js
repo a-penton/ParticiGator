@@ -29,6 +29,46 @@ const styles = StyleSheet.create({
       width: 200,
       height: 200,
     },
+
+    // Correct/ Incorrect images
+    correct_image_view:{
+      top: 20,
+      width: "90%",
+      // height: 200,
+      // backgroundColor: "green",
+      // borderRadius: 10,
+      // textAlign: 'left',
+      left: "5%",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+
+    incorrect_image_view:{
+      top: 20,
+      width: "90%",
+      // height: 200,
+      // backgroundColor: "green",
+      // borderRadius: 10,
+      // textAlign: 'left',
+      left: "5%",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+
+    correct_image:{
+      width: 200,
+      height: 200,
+
+    },
+
+    // Correct/ Incorrect images
+    incorrect_image:{
+      width: 175,
+      height: 175,
+    },
+
+
+
     // view for images for questions
     question_image_view:{
       top: 20,
@@ -58,7 +98,7 @@ const styles = StyleSheet.create({
       
     },
 
-    // submit/enter code 
+    // Submit/enter code 
     enter_code_submit_view:{
       top: 70,
       width: "90%",
@@ -70,6 +110,7 @@ const styles = StyleSheet.create({
       
     },
 
+    // Used for spacing
     space_view:{
       top: 70,
       width: "90%",
@@ -91,16 +132,7 @@ const styles = StyleSheet.create({
 
     },
 
-    // submitButton: {
-    //   // width: "100%",
-    //   borderRadius: 10,
-    //   height: 50,
-    //   // justifyContent: "center",
-    //   // marginTop: 40,
-    //   backgroundColor: "#466AFF",
-    //   fontSize: "20%",
-    //   padding: 30,
-    // },
+
     // Welcome to ParticiGator text
     header_text: {
       height: 40,
@@ -108,6 +140,52 @@ const styles = StyleSheet.create({
       fontSize: '28%',
       fontWeight: 'bold',
     },
+
+    // Your answer was correct/incorrect
+    correct_text: {
+      marginTop: 100,
+      height: 30,
+      // paddingHorizontal: 15,
+      color: "#000000",
+      fontSize: '28%',
+      fontWeight: 'bold',
+      alignItems: "center",
+      justifyContent: "center",
+    },
+
+    excellent_job_text: {
+      marginTop: 20,
+      height: 30,
+      // paddingHorizontal: 15,
+      color: "#000000",
+      fontSize: '28%',
+      fontWeight: 'bold',
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    incorrect_text: {
+      marginTop: 100,
+      height: 70,
+      paddingHorizontal: 15,
+      color: "#000000",
+      fontSize: '28%',
+      fontWeight: 'bold',
+      alignItems: "center",
+      justifyContent: "center",
+    },
+
+    try_again_text: {
+      marginTop: 20,
+      height: 60,
+      // paddingHorizontal: 15,
+      color: "#000000",
+      fontSize: '28%',
+      fontWeight: 'bold',
+      alignItems: "center",
+      justifyContent: "center",
+      // paddingVertical: 20,
+    },
+
 
     // Welcome back, ____ text
     activity_header_text: {
@@ -149,6 +227,16 @@ const styles = StyleSheet.create({
 
     // Login button
     loginBtn: {
+      width: "80%",
+      borderRadius: 25,
+      height: 50,
+      justifyContent: "center",
+      marginTop: 40,
+      backgroundColor: "#466AFF",
+    },
+
+    // Sign out button
+    signOutBtn: {
       width: "80%",
       borderRadius: 25,
       height: 50,
@@ -207,6 +295,22 @@ const styles = StyleSheet.create({
       paddingVertical: 50,
 
     },
+
+    explanation_text: {
+      // top: 50,
+      // height: 80,
+      width: "90%",
+      color: "#000000",
+      fontSize: '20%',
+      top: 10, 
+      padding: 10,
+      // left: "5%",
+      // paddingVertical: 50,
+
+    },
+
+
+
 
 
     // All styles for passcode entering functionality

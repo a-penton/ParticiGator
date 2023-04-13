@@ -22,6 +22,9 @@ const ActivityPage = ({ navigation, route }, props) => {
   const currentQuestion = data[0];
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
   const [classCode, setClassCode] = useState('');
+  const [correctAnswerIndex, setCorrectAnswerIndex] = useState(currentQuestion.correctAnswerIndex);
+  const [explanation, setExplanation] = useState(currentQuestion.explanation);
+  const [questionImage, setQuestionImage] = useState(currentQuestion.image);
 
   return (
     <ScrollView style={ComponentStyles.container_activity}>
@@ -73,7 +76,7 @@ const ActivityPage = ({ navigation, route }, props) => {
             {/* <Text style={{ marginTop: 10, fontSize: '18%', left: "2%" }}>Enter passcode:</Text> */}
           </View>
           <TouchableOpacity
-            onPress={() => console.warn("hi i was pressed")}
+            onPress={() => navigation.navigate('Profile', {answer: selectedAnswerIndex, correctAnswer: correctAnswerIndex, explained: explanation, image: questionImage})}
             style={{ backgroundColor: "#466AFF", borderRadius: 10, width: "40%", height: 70, alignItems: "center", justifyContent: "center", }}
           >
             <Text style={{ color: "#FFFFFF", fontSize: "20%", }}>Submit</Text>
