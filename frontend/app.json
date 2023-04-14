@@ -30,7 +30,7 @@
       "favicon": "./assets/favicon.png"
     },
     "extra": {
-      "env": "prod",
+      "env": "dev",
       "apiUrl": "http://10.136.149.39:3000"
     }
   }

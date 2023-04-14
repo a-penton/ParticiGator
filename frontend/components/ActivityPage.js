@@ -14,10 +14,35 @@ import {
   Platform,
 } from "react-native";
 import ComponentStyles from '../ComponentStyles';
+import axios from 'axios'
 import Questions from './Questions';
+import Constants from "expo-constants";
+
+let api = null;
+if (Constants.expoConfig.extra.env === 'dev') {
+  api = 'http://localhost:3000';
+} else {
+  api = Constants.expoConfig.extra.apiUrl;
+}
 
 const ActivityPage = ({ navigation, route }, props) => {
   const { username, password } = route.params;
+
+  async function getQuestionData(){
+    const title = "AVL Rotation"
+    const data = await axios.get(`${api}/questions/${title}`)
+    .then(response => {
+      if (response.status !== 404) {
+        //console.log(response.data.questionTitle);
+        return response.data;
+      }
+    })
+    .catch(error => {
+        return null;
+      });
+  }
+  
+  //const data = getQuestionData();
   const data = Questions;
   const currentQuestion = data[0];
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
