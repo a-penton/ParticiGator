@@ -10,9 +10,9 @@ export function buildUsersControllers(databaseConnection) {
       const id = req.params.id;
       const documents = await db.Students.findOne({ id });
       if (documents === null) {
-        return res.status(404).send('User not found');
+        return res.status(404).send('Could not find a user with those credentials. Please contact your instructor.');
       }
-      return res.send(documents);
+      return res.sendStatus(201);
     },
     create: async (req, res) => {
       await db.Students.insertOne(req.body);

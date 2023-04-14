@@ -13,4 +13,5 @@ export class API {
     const response = await axios.get(`${api}/users`);
     return response.data;
   }
+  
 }

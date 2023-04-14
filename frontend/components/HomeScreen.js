@@ -9,8 +9,18 @@ import {
     Button,
     TouchableOpacity,
     Pressable,
+    Alert,
   } from "react-native";
 import ComponentStyles from '../ComponentStyles';
+import axios from 'axios';
+import Constants from "expo-constants";
+
+let api = null;
+if (Constants.expoConfig.extra.env === 'dev') {
+  api = 'http://localhost:3000';
+} else {
+  api = Constants.expoConfig.extra.apiUrl;
+}
 
 // Passcode length
 const CODE_LENGTH = 4;
@@ -97,6 +107,20 @@ const HomeScreen = ({navigation, route}, props) => {
       );
     };  
 
+    const handleSubmit = async () => {
+      const response = await axios.get(`${api}/users/${name+password}`)
+      .then(response => {
+        if (response.status === 201) {
+          {navigation.navigate('ActivityPage', {username: name, password: password})};
+          return true;
+        }
+      })
+      .catch(error => {
+        {Alert.alert(error.response.data)};
+        return false;
+      });
+    };
+
     return (
       // Screen 
       <View style={ComponentStyles.container}>
@@ -164,9 +188,14 @@ const HomeScreen = ({navigation, route}, props) => {
             title="Login"
             color= "#fff"
             onPress={() => 
-              { //handleSubmit(name, password);
-                navigation.navigate('ActivityPage', {username: name, password: password})}
-          }/>
+              {  
+                const res = handleSubmit();
+                //console.log(res);
+                // if(res){
+                //   {navigation.navigate('ActivityPage', {username: name, password: password})};
+                // }
+              }
+            }/>
         </View>
         
       </View> 
