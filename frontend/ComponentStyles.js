@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: "#fff",
-      alignItems: "center",
-      justifyContent: "center",
+      // alignItems: "center",
+      // justifyContent: "center",
     },
 
     // Activity Screen
@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     
     // Gator image
     image: {
+      marginTop:75,
       width: 120,
       height: 80,
     },
@@ -135,6 +136,7 @@ const styles = StyleSheet.create({
 
     // Welcome to ParticiGator text
     header_text: {
+      marginTop: 70,
       height: 40,
       color: "#000000",
       fontSize: '28%',
@@ -201,7 +203,8 @@ const styles = StyleSheet.create({
 
     // Instructions text
     instruction_text: {
-      height: 90,
+      marginTop:10,
+      height: 85,
       width: 300,
       color: "#000000",
       fontSize: '15%',
@@ -299,11 +302,14 @@ const styles = StyleSheet.create({
     explanation_text: {
       // top: 50,
       // height: 80,
+      // backgroundColor: "green",
       width: "90%",
       color: "#000000",
       fontSize: '20%',
       top: 10, 
       padding: 10,
+      alignItems: "center",
+      justifyContent: "center",
       // left: "5%",
       // paddingVertical: 50,
 

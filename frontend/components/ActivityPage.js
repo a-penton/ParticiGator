@@ -13,11 +13,13 @@ import {
   KeyboardAvoidingView,
   Platform,
   ActivityIndicator,
+  Alert,
 } from "react-native";
 import ComponentStyles from '../ComponentStyles';
 import { useAsync } from 'react-async';
 import { API } from "../API";
 import Questions from './Questions';
+import NoAssignments from './NoAssignments';
 
 const fetchQuestion = async () => {
   return await API.getQuestionData();
@@ -27,7 +29,7 @@ const ActivityPage = ({ navigation, route }, props) => {
   const { username, password } = route.params;
   const asyncQuestion = useAsync(fetchQuestion, []);
   const currentQuestion = asyncQuestion.data ?? null;
-  if(currentQuestion !== null){
+  if (currentQuestion !== null) {
     console.log(currentQuestion.questionTitle);
   }
 
@@ -38,12 +40,40 @@ const ActivityPage = ({ navigation, route }, props) => {
   const [questionImage, setQuestionImage] = useState('');
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
+
   const handleImageLoad = () => {
     setIsImageLoaded(true);
   };
 
+  const handleSubmit = async () => {
+    // console.warn("clicked submit")
+    // console.warn(classCode)
+
+    if (classCode === currentQuestion.passcode && selectedAnswerIndex != null) {
+      // console.warn("ok ok ok")
+      { navigation.navigate('Profile', { answer: selectedAnswerIndex, correctAnswer: currentQuestion.correctAnswerIndex, explained: currentQuestion.explanation, image: "https://drive.google.com/uc?export=view&id=" + currentQuestion.imagePath }) };
+      return true;
+    }
+
+    else if (classCode != currentQuestion.passcode && selectedAnswerIndex != null) {
+      { Alert.alert("Incorrect passcode. Please try again.") };
+      return false;
+
+    }
+
+    else if (classCode === currentQuestion.passcode && selectedAnswerIndex === null) {
+      { Alert.alert("Please select an answer choice before submitting.") };
+      return false;
+
+    }
+
+    // { Alert.alert("hello world") };
+    // return false;
+
+  };
+
   return (
-    <ScrollView>{currentQuestion !== null ? 
+    <ScrollView>{currentQuestion !== null ?
       <ScrollView style={ComponentStyles.container_activity}>
         <Text style={ComponentStyles.activity_header_text}>Welcome back, {username}!</Text>
 
@@ -56,7 +86,7 @@ const ActivityPage = ({ navigation, route }, props) => {
           {!isImageLoaded && (
             <ActivityIndicator size="large" />
           )}
-          <Image source={{uri: "https://drive.google.com/uc?export=view&id=" + currentQuestion.imagePath}} onLoad={handleImageLoad} style={ComponentStyles.question_image} />
+          <Image source={{ uri: "https://drive.google.com/uc?export=view&id=" + currentQuestion.imagePath }} onLoad={handleImageLoad} style={ComponentStyles.question_image} />
         </View>
 
         <View style={ComponentStyles.answers_view}>
@@ -84,7 +114,7 @@ const ActivityPage = ({ navigation, route }, props) => {
                 style={ComponentStyles.code_input_view}
                 onChangeText={setClassCode}
                 value={classCode}
-                maxLength={8}
+                maxLength={6}
                 autoCapitalize="characters"
                 keyboardType="visible-password"
                 autoCorrect="false"
@@ -93,7 +123,13 @@ const ActivityPage = ({ navigation, route }, props) => {
               {/* <Text style={{ marginTop: 10, fontSize: '18%', left: "2%" }}>Enter passcode:</Text> */}
             </View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Profile', {answer: selectedAnswerIndex, correctAnswer: currentQuestion.correctAnswerIndex, explained: currentQuestion.explanation, image: "https://drive.google.com/uc?export=view&id=" + currentQuestion.imagePath})}
+              onPress={() => {
+                const res = handleSubmit();
+                //console.log(res);
+                // if(res){
+                //   {navigation.navigate('ActivityPage', {username: name, password: password})};
+                // }
+              }}
               style={{ backgroundColor: "#466AFF", borderRadius: 10, width: "40%", height: 70, alignItems: "center", justifyContent: "center", }}
             >
               <Text style={{ color: "#FFFFFF", fontSize: "20%", }}>Submit</Text>
@@ -102,11 +138,15 @@ const ActivityPage = ({ navigation, route }, props) => {
         </View>
 
         <View style={ComponentStyles.space_view}>
+        </View>
 
+        <View style={ComponentStyles.space_view}>
         </View>
 
       </ScrollView> : 
-      <ScrollView><Text>Loading...</Text>
+      <ScrollView>
+        <Text>Loading...</Text>
+        {/* <NoAssignments></NoAssignments> */}
       </ScrollView>}
     </ScrollView>
   );

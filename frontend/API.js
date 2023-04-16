@@ -15,7 +15,7 @@ export class API {
   }
 
   static async getQuestionData(){
-    const title = "Quiz 3"
+    const title = "Quiz 2";
     console.log("API: " + title);
     const data = await axios.get(`${api}/questions/${title}`)
     .then(response => {
