@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
       width: 200,
       height: 200,
     },
+    
 
     // Correct/ Incorrect images
     correct_image_view:{
@@ -142,6 +143,19 @@ const styles = StyleSheet.create({
       fontSize: '28%',
       fontWeight: 'bold',
     },
+
+    noActiveAssignments_text: {
+      padding: 25,
+      // width: 300,
+      alignItems: "center",
+      justifyContent: "center",
+      marginTop: 60,
+      height: 200,
+      color: "#000000",
+      fontSize: '28%',
+      fontWeight: 'bold',
+    },
+
 
     // Your answer was correct/incorrect
     correct_text: {

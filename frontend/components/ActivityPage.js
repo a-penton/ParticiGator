@@ -67,6 +67,12 @@ const ActivityPage = ({ navigation, route }, props) => {
 
     }
 
+    else if(classCode != currentQuestion.passcode && selectedAnswerIndex === null){
+      { Alert.alert("Incorrect passcode. Please try again.") };
+      return false;
+
+    }
+
     // { Alert.alert("hello world") };
     // return false;
 
@@ -145,8 +151,9 @@ const ActivityPage = ({ navigation, route }, props) => {
 
       </ScrollView> : 
       <ScrollView>
-        <Text>Loading...</Text>
-        {/* <NoAssignments></NoAssignments> */}
+
+        {/* <Text>Loading...</Text> */}
+        <NoAssignments></NoAssignments>
       </ScrollView>}
     </ScrollView>
   );
