@@ -6,6 +6,7 @@ const DATABASE_NAME = "ParticiGator";
 const COLLECTIONS = {
     Students: "Students",
     Questions: "Questions",
+    StudentSubmissions: "StudentSubmissions",
 }
 
 export async function connectToDatabase() {
@@ -24,5 +25,6 @@ export async function connectToDatabase() {
         ParticiGator: db,
         Students: db.collection(COLLECTIONS.Students),
         Questions: db.collection(COLLECTIONS.Questions),
+        StudentSubmissions: db.collection(COLLECTIONS.StudentSubmissions),
     };
 }

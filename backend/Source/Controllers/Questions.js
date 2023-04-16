@@ -7,9 +7,10 @@ export function buildQuestionsControllers(databaseConnection) {
         return res.send(documents);
       },
       getByTitle: async (req, res) => {
-        const title = req.params.questionTitle;
-        console.log(title)
-        const documents = await db.Questions.findOne({ questionTitle: title },);
+        const title = req.params.numID;
+        console.log("ID" + title)
+        const documents = await db.Questions.findOne({ questionTitle: 'Quiz ' + title },);
+        console.log(documents);
         if (documents === null) {
           return res.status(404).send('Question not found');
         }

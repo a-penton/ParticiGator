@@ -12,7 +12,9 @@ export function buildUsersControllers(databaseConnection) {
       if (documents === null) {
         return res.status(404).send('Could not find a user with those credentials. Please contact your instructor.');
       }
-      return res.sendStatus(201);
+      else{
+        return res.status(201).send(documents);
+      }
     },
     create: async (req, res) => {
       await db.Students.insertOne(req.body);

@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect} from 'react';
 import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
@@ -9,14 +9,63 @@ import {
   Button,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from "react-native";
 import ComponentStyles from '../ComponentStyles';
 import Questions from './Questions';
 const correctImage = require('./../assets/images/correct.png');
 const incorrectImage = require('./../assets/images/incorrect.png');
+import axios from 'axios';
+import Constants from "expo-constants";
+
+let api = null;
+if (Constants.expoConfig.extra.env === 'dev') {
+  api = 'http://localhost:3000';
+} else {
+  api = Constants.expoConfig.extra.apiUrl;
+}
 
 const ProfileScreen = ({ navigation, route }, props) => {
-  const { answer, correctAnswer, explained, image } = route.params;
+  const { question, id, answer, correctAnswer, explained, image } = route.params;
+  // TODO: check email/password against backend
+
+  async function getInstructor(){
+    const dataInstructor = {id: id}
+    return await axios.get(`${api}/users/${id}`, {
+      dataInstructor}
+    ).then(response => {
+      if (response.status === 201) {
+        // Redirect to new screen
+        console.log(response)
+        return response.data.instructor;
+        //Alert.alert("Submission logged!");
+      }
+    })
+    .catch(error => {
+      alert("Could not find instructor.");
+    });
+  }
+  useEffect(() => {
+    async function submit() {
+      const instructor = await getInstructor();
+      const data = {id: id, instructor: instructor, question: question, score: answer == correctAnswer ? 1: 0};
+
+      await axios.post(`${api}/submissions`, {
+        data}
+      ).then(response => {
+        if (response.status === 201) {
+          // Redirect to new screen
+          console.log(response)
+          Alert.alert("Submission logged!");
+        }
+      })
+      .catch(error => {
+        alert("Could not submit response. You have already submitted.");
+      });
+    }
+    submit();
+  });
+  
   return (
     <ScrollView style={{backgroundColor: "#FFFFFF"}}>
       {answer === correctAnswer ? (

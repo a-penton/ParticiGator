@@ -51,7 +51,7 @@ const ActivityPage = ({ navigation, route }, props) => {
 
     if (classCode === currentQuestion.passcode && selectedAnswerIndex != null) {
       // console.warn("ok ok ok")
-      { navigation.navigate('Profile', { answer: selectedAnswerIndex, correctAnswer: currentQuestion.correctAnswerIndex, explained: currentQuestion.explanation, image: "https://drive.google.com/uc?export=view&id=" + currentQuestion.imagePath }) };
+      { navigation.navigate('Profile', { question: currentQuestion.questionTitle, id: username + password, answer: selectedAnswerIndex, correctAnswer: currentQuestion.correctAnswerIndex, explained: currentQuestion.explanation, image: "https://drive.google.com/uc?export=view&id=" + currentQuestion.imagePath }) };
       return true;
     }
 
