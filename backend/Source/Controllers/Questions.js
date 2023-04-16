@@ -8,7 +8,8 @@ export function buildQuestionsControllers(databaseConnection) {
       },
       getByTitle: async (req, res) => {
         const title = req.params.questionTitle;
-        const documents = await db.Questions.findOne({ title });
+        console.log(title)
+        const documents = await db.Questions.findOne({ questionTitle: title },);
         if (documents === null) {
           return res.status(404).send('Question not found');
         }

@@ -35,7 +35,9 @@ const ProfileScreen = ({ navigation, route }, props) => {
           <Image source={correctImage} style={ComponentStyles.correct_image} />
         </View>
       ) : (
-        <Text></Text>
+        <View style={ComponentStyles.correct_image_view}>
+          <Image source={incorrectImage} style={ComponentStyles.incorrect_image} />
+        </View>
         // <View style={ComponentStyles.incorrect_image_view}>
         //   {/* <Image source={incorrectImage} style={ComponentStyles.incorrect_image} /> */}
         // </View>
@@ -48,17 +50,13 @@ const ProfileScreen = ({ navigation, route }, props) => {
         </View>
       ) : (
         <Text></Text>
-        // <View style={{ justifyContent: "center", alignItems: "center", top: 20 }}>
-        //   <Text style={ComponentStyles.try_again_text}>Here's why...</Text>
-        // </View>
-        // <Text style={ComponentStyles.try_again_text}>Here's why...</Text>
       )}
 
       {answer === correctAnswer ? (
         <Text></Text>
       ) : (
         <View style={ComponentStyles.question_image_view}>
-          <Image source={image} style={ComponentStyles.question_image} />
+          <Image source={{uri: image}} style={ComponentStyles.question_image} />
         </View>
       )}
 
