@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 
 // Should be loaded from a config file, **NOT** hard-coded here.
-const MONGO_URI = "put connection string here";
+const MONGO_URI = "mongodb+srv://robinfintz:btOtAtPzVfWXlStp@cluster0.szon0.mongodb.net/?retryWrites=true&w=majority";
 const DATABASE_NAME = "ParticiGator";
 const COLLECTIONS = {
     Students: "Students",
