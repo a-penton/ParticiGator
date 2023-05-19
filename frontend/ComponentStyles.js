@@ -5,8 +5,6 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: "#fff",
-      // alignItems: "center",
-      // justifyContent: "center",
     },
 
     // Activity Screen
@@ -14,9 +12,6 @@ const styles = StyleSheet.create({
       flex: 1,
       paddingTop: StatusBar.currentHeight,
       backgroundColor: "#fff",
-      //alignItems: "center",
-      // justifyContent: "center",
-      // marginTop: "5%",
     },
     
     // Gator image
@@ -25,21 +20,17 @@ const styles = StyleSheet.create({
       width: 120,
       height: 80,
     },
+
     // images for questions
     question_image:{
       width: 200,
       height: 200,
     },
     
-
     // Correct/ Incorrect images
     correct_image_view:{
       top: 20,
       width: "90%",
-      // height: 200,
-      // backgroundColor: "green",
-      // borderRadius: 10,
-      // textAlign: 'left',
       left: "5%",
       justifyContent: "center",
       alignItems: "center",
@@ -48,10 +39,6 @@ const styles = StyleSheet.create({
     incorrect_image_view:{
       top: 20,
       width: "90%",
-      // height: 200,
-      // backgroundColor: "green",
-      // borderRadius: 10,
-      // textAlign: 'left',
       left: "5%",
       justifyContent: "center",
       alignItems: "center",
@@ -75,10 +62,6 @@ const styles = StyleSheet.create({
     question_image_view:{
       top: 20,
       width: "90%",
-      // height: 200,
-      // backgroundColor: "green",
-      // borderRadius: 10,
-      // textAlign: 'left',
       left: "5%",
       justifyContent: "center",
       alignItems: "center",
@@ -88,16 +71,8 @@ const styles = StyleSheet.create({
     answers_view:{
       top: 20,
       width: "90%",
-      // height: 400,
       alignItems: "center",
-      
-      // backgroundColor: "red",
-      // borderRadius: 10,
-      // textAlign: 'left',
       left: "5%",
-      // textAlignVertical:2,
-      // textAlign: "center",
-      
     },
 
     // Submit/enter code 
@@ -105,9 +80,6 @@ const styles = StyleSheet.create({
       top: 70,
       width: "90%",
       height: 200,
-      // backgroundColor: "blue",
-      // borderRadius: 10,
-      // textAlign: 'left',
       left: "5%",
       
     },
@@ -117,9 +89,6 @@ const styles = StyleSheet.create({
       top: 70,
       width: "90%",
       height: 200,
-      // backgroundColor: "blue",
-      // borderRadius: 10,
-      // textAlign: 'left',
       left: "5%",
       
     },
@@ -146,7 +115,6 @@ const styles = StyleSheet.create({
 
     noActiveAssignments_text: {
       padding: 25,
-      // width: 300,
       alignItems: "center",
       justifyContent: "center",
       marginTop: 60,
@@ -156,12 +124,10 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
 
-
     // Your answer was correct/incorrect
     correct_text: {
       marginTop: 100,
       height: 30,
-      // paddingHorizontal: 15,
       color: "#000000",
       fontSize: '28%',
       fontWeight: 'bold',
@@ -172,13 +138,13 @@ const styles = StyleSheet.create({
     excellent_job_text: {
       marginTop: 20,
       height: 30,
-      // paddingHorizontal: 15,
       color: "#000000",
       fontSize: '28%',
       fontWeight: 'bold',
       alignItems: "center",
       justifyContent: "center",
     },
+
     incorrect_text: {
       marginTop: 100,
       height: 70,
@@ -193,15 +159,12 @@ const styles = StyleSheet.create({
     try_again_text: {
       marginTop: 20,
       height: 60,
-      // paddingHorizontal: 15,
       color: "#000000",
       fontSize: '28%',
       fontWeight: 'bold',
       alignItems: "center",
       justifyContent: "center",
-      // paddingVertical: 20,
     },
-
 
     // Welcome back, ____ text
     activity_header_text: {
@@ -223,6 +186,7 @@ const styles = StyleSheet.create({
       color: "#000000",
       fontSize: '15%',
     },
+
     inputView: {
       backgroundColor: "#FFC0CB",
       borderRadius: 30,
@@ -231,12 +195,14 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       alignItems: "center",
     },
+
     TextInput: {
       height: 50,
       flex: 1,
       padding: 10,
       marginLeft: 20,
     },
+
     forgot_button: {
       height: 30,
       marginBottom: 30,
@@ -274,7 +240,6 @@ const styles = StyleSheet.create({
     blue_text_box: {
       marginTop: 10,
       width: "90%",
-      // height: question_text.height,
       backgroundColor: "#466AFF",
       borderRadius: 10,
       textAlign: 'left',
@@ -303,8 +268,6 @@ const styles = StyleSheet.create({
 
     // Question
     question_text: {
-      // top: 50,
-      // height: 80,
       width: "90%",
       color: "#FFFFFF",
       fontSize: '16%',
@@ -314,9 +277,6 @@ const styles = StyleSheet.create({
     },
 
     explanation_text: {
-      // top: 50,
-      // height: 80,
-      // backgroundColor: "green",
       width: "90%",
       color: "#000000",
       fontSize: '20%',
@@ -324,14 +284,7 @@ const styles = StyleSheet.create({
       padding: 10,
       alignItems: "center",
       justifyContent: "center",
-      // left: "5%",
-      // paddingVertical: 50,
-
     },
-
-
-
-
 
     // All styles for passcode entering functionality
     hiddenCodeInput: {
@@ -353,6 +306,7 @@ const styles = StyleSheet.create({
       borderRadius: 4,
       padding: 12,
     },
+
     inputText: {
       fontSize: 24,
       fontFamily: 'Menlo-Regular',

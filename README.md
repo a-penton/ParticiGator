@@ -20,6 +20,7 @@ IMPORTANT: *In the ../backend/Source folder, replace the MONGO_URI string in the
 
 Before running the app for the first time on a device:
 * Run "npm i" in both the front and back end directories
+* Install Expo in the front end directory using "cd frontend" and " npm install expo-cli"
 * Run "cd frontend" and "npx expo login" to sign in with your expo account in the front end directory
 * Run "ipconfig" (Windows) or "ifconfig" (Mac) to obtain your Wireless LAN Adapter Wi-Fi IPv4 address
 * In the ../frontend folder, replace the IP address string in the app.json file with your IPv4 address obtained in the previous ste (make sure you don't delete the port number).

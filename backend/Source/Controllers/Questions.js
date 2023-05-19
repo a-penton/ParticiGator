@@ -1,3 +1,4 @@
+// Function to enable CRUD operations with Questions database
 export function buildQuestionsControllers(databaseConnection) {
     const db = databaseConnection;
     
@@ -8,14 +9,11 @@ export function buildQuestionsControllers(databaseConnection) {
       },
       getByTitle: async (req, res) => {
         const title = req.params.numID;
-        console.log("ID" + title)
         const documents = await db.Questions.findOne({ questionTitle: 'Quiz ' + title },);
-        console.log(documents);
         if (documents === null) {
           return res.status(404).send('Question not found');
         }
         else {
-            console.log(documents); 
             return res.send(documents)};
       },
       create: async (req, res) => {

@@ -1,3 +1,4 @@
+// Function to enable CRUD operations with Users (Students) database
 export function buildUsersControllers(databaseConnection) {
   const db = databaseConnection;
   

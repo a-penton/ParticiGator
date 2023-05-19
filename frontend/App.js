@@ -18,6 +18,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+
+// App component housing Stack.Navigator housing entire app
 export default function App() {
   const Stack = createNativeStackNavigator();
  

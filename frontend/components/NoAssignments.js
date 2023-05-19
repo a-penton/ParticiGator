@@ -4,6 +4,7 @@ import ComponentStyles from '../ComponentStyles';
 
 const sleepyGatorImage = require('./../assets/images/sleepy_gator2.png');
 
+// Component shown when there are no assignments to complete
 const NoAssignments = () => {
 
     return (
@@ -19,22 +20,9 @@ const NoAssignments = () => {
                 </View>
             </View>
 
-
             <Text style={ComponentStyles.noActiveAssignments_text}>There are currently no active assignments due.</Text>
 
-
-            {/* <View style={ComponentStyles.question_image_view}>
-                <Image source={sleepyGatorImage} style={ComponentStyles.question_image} />
-            </View> */}
-
         </ScrollView>
-
-
-        // <ScrollView>
-        //     <Text style={ComponentStyles.header_text}>Take a Rest.</Text>
-        // </ScrollView>
-
-
     );
 }
 

@@ -7,6 +7,7 @@ import { buildUsersControllers } from './Controllers/Users';
 import { buildQuestionsControllers } from './Controllers/Questions';
 import { buildStudentSubmissionsControllers } from './Controllers/StudentSubmissions';
 
+// Set up express routes using controllers
 async function main() {
   const app = express();
   app.use(cors()); // Allow all CORS requests.
@@ -40,7 +41,6 @@ async function main() {
     console.log('Server started on port 3000');
   });
 
-  //module.exports = app;
 };
 
 main();

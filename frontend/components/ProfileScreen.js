@@ -12,7 +12,6 @@ import {
   Alert,
 } from "react-native";
 import ComponentStyles from '../ComponentStyles';
-import Questions from './Questions';
 const correctImage = require('./../assets/images/correct.png');
 const incorrectImage = require('./../assets/images/incorrect.png');
 import axios from 'axios';
@@ -25,9 +24,9 @@ if (Constants.expoConfig.extra.env === 'dev') {
   api = Constants.expoConfig.extra.apiUrl;
 }
 
+// Component shown after student answers, gives feedback on submission after submitting response
 const ProfileScreen = ({ navigation, route }, props) => {
   const { question, id, answer, correctAnswer, explained, image } = route.params;
-  // TODO: check email/password against backend
 
   async function getInstructor(){
     const dataInstructor = {id: id}
@@ -36,9 +35,7 @@ const ProfileScreen = ({ navigation, route }, props) => {
     ).then(response => {
       if (response.status === 201) {
         // Redirect to new screen
-        console.log(response)
         return response.data.instructor;
-        //Alert.alert("Submission logged!");
       }
     })
     .catch(error => {
@@ -55,7 +52,6 @@ const ProfileScreen = ({ navigation, route }, props) => {
       ).then(response => {
         if (response.status === 201) {
           // Redirect to new screen
-          console.log(response)
           Alert.alert("Submission logged!");
         }
       })
@@ -76,7 +72,6 @@ const ProfileScreen = ({ navigation, route }, props) => {
         <View style={{ justifyContent: "center", alignItems: "center" }}>
           <Text style={ComponentStyles.incorrect_text}>Sorry, but your answer was incorrect...</Text>
         </View>
-        // <Text style={ComponentStyles.incorrect_text}>Sorry, but your answer was incorrect...</Text>
       )}
 
       {answer === correctAnswer ? (
@@ -87,10 +82,6 @@ const ProfileScreen = ({ navigation, route }, props) => {
         <View style={ComponentStyles.correct_image_view}>
           <Image source={incorrectImage} style={ComponentStyles.incorrect_image} />
         </View>
-        // <View style={ComponentStyles.incorrect_image_view}>
-        //   {/* <Image source={incorrectImage} style={ComponentStyles.incorrect_image} /> */}
-        // </View>
-        // <Image source={incorrectImage} style={ComponentStyles.incorrect_image_view} />
       )}
 
       {answer === correctAnswer ? (
@@ -135,19 +126,6 @@ const ProfileScreen = ({ navigation, route }, props) => {
       <View style={ComponentStyles.space_view}>
 
       </View>
-
-
-      {/* <Text>This answer the user got is: {answer}</Text>
-        <Text>This answer the user should have gotten is: {correctAnswer}</Text> */}
-      {/* <View style={ComponentStyles.signOutBtn}>
-        <Button
-          title="Sign Out"
-          color="#FFFFFF"
-          onPress={() =>
-            navigation.navigate('Home', {})
-          }
-        />
-      </View> */}
     </ScrollView>
   );
 };

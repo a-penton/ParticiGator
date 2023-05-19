@@ -1,3 +1,4 @@
+// Function to enable CRUD operations with StudentSubmissions database
 export function buildStudentSubmissionsControllers(databaseConnection) {
     const db = databaseConnection;
     
@@ -15,12 +16,8 @@ export function buildStudentSubmissionsControllers(databaseConnection) {
         return res.sendStatus(201);
       },
       create: async (req, res) => {
-        console.log(req.body.data.question);
         const user = await db.StudentSubmissions.findOne({$and: [{'id': req.body.data.id}, {'question': req.body.data.question }]});
-        console.log(user)
         if (user == null) {
-          console.log("User cleared");
-          //console.log(req.body.data);
           await db.StudentSubmissions.insertOne(req.body.data);
           return res.sendStatus(201);
         }

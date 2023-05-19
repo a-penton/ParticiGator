@@ -26,15 +26,9 @@ if (Constants.expoConfig.extra.env === 'dev') {
 // Passcode length
 const CODE_LENGTH = 4;
 
-// Might not need anymore 
-// function handleSubmit(name, password) {
-//     console.log('Name: ', name);
-//     console.log('Password: ', password)
-// }
-
-// Adds gator icon 
 const gatorImage = require('./../assets/images/gator-icon.png');
 
+// Component allowing student to login to complete activity
 const HomeScreen = ({ navigation, route }, props) => {
 
   // This is the passcode to be sent to the database
@@ -130,9 +124,6 @@ const HomeScreen = ({ navigation, route }, props) => {
           <Image source={gatorImage} style={ComponentStyles.image} />
         </View>
       </View>
-      {/* <View style={ComponentStyles.image}> 
-        <Image source={gatorImage} style={ComponentStyles.image} />
-        </View> */}
       <StatusBar style="auto" />
       <View style={{ alignItems: "center", justifyContent: "center" }}>
         <Text style={ComponentStyles.header_text}>Welcome to ParticiGator!</Text>
@@ -180,83 +171,10 @@ const HomeScreen = ({ navigation, route }, props) => {
             color="#fff"
             onPress={() => {
               const res = handleSubmit();
-              //console.log(res);
-              // if(res){
-              //   {navigation.navigate('ActivityPage', {username: name, password: password})};
-              // }
             }
             } />
         </View>
       </View >
-
-      {/* <Text style={ComponentStyles.header_text}>Welcome to ParticiGator!</Text> */}
-      {/* <Text style={ComponentStyles.instruction_text}>Enter the first two letters of your first name,
-        the first two letters of your last name, and
-        the last four digits of your UFID.</Text> */}
-      {/* <View style={ComponentStyles.inputView}>
-          <TextInput
-            style={ComponentStyles.TextInput}
-            value={name}
-            onChangeText={setName}
-            placeholder="Name."
-            placeholderTextColor="#003f5c"
-          /> 
-        </View> 
-        <View style={ComponentStyles.inputView}>
-          <TextInput
-            style={ComponentStyles.TextInput}
-            value={password}
-            onChangeText={setPassword}
-            placeholder="Password."
-            placeholderTextColor="#003f5c"
-            secureTextEntry={true}
-          /> 
-        </View>  */}
-      {/* <Pressable style={ComponentStyles.inputsContainer} onPress={handleOnPressName}>
-        {codeDigitsArrayName.map(toDigitInputName)}
-      </Pressable>
-      <TextInput
-        ref={refName}
-        value={name}
-        onChangeText={setName}
-        onSubmitEditing={handleOnBlur}
-        autoCorrect="false"
-        spellCheck="false"
-        autoCapitalize="characters"
-        keyboardType="visible-password"
-        returnKeyType="done"
-        textContentType="oneTimeCode"
-        maxLength={CODE_LENGTH}
-        style={ComponentStyles.hiddenCodeInput}
-      />
-      <View style={ComponentStyles.rectangle}></View> */}
-      {/* <Pressable style={ComponentStyles.inputsContainer} onPress={handleOnPressPassword}>
-        {codeDigitsArrayPassword.map(toDigitInputPassword)}
-      </Pressable>
-      <TextInput
-        ref={refPassword}
-        value={password}
-        onChangeText={setPassword}
-        onSubmitEditing={handleOnBlur}
-        keyboardType="number-pad"
-        returnKeyType="done"
-        textContentType="oneTimeCode"
-        maxLength={CODE_LENGTH}
-        style={ComponentStyles.hiddenCodeInput}
-      /> */}
-      {/* <View style={ComponentStyles.loginBtn}>
-        <Button
-          title="Login"
-          color="#fff"
-          onPress={() => {
-            const res = handleSubmit();
-            //console.log(res);
-            // if(res){
-            //   {navigation.navigate('ActivityPage', {username: name, password: password})};
-            // }
-          }
-          } />
-      </View> */}
 
       <View style={ComponentStyles.space_view}>
       </View>

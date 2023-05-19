@@ -18,21 +18,17 @@ import {
 import ComponentStyles from '../ComponentStyles';
 import { useAsync } from 'react-async';
 import { API } from "../API";
-import Questions from './Questions';
 import NoAssignments from './NoAssignments';
 
 const fetchQuestion = async () => {
   return await API.getQuestionData();
 }
 
+// Component showing current question and answer choices assigned to student
 const ActivityPage = ({ navigation, route }, props) => {
   const { username, password } = route.params;
   const asyncQuestion = useAsync(fetchQuestion, []);
   const currentQuestion = asyncQuestion.data ?? null;
-  if (currentQuestion !== null) {
-    console.log(currentQuestion.questionTitle);
-  }
-
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
   const [classCode, setClassCode] = useState('');
   const [correctAnswerIndex, setCorrectAnswerIndex] = useState(0);
@@ -46,11 +42,8 @@ const ActivityPage = ({ navigation, route }, props) => {
   };
 
   const handleSubmit = async () => {
-    // console.warn("clicked submit")
-    // console.warn(classCode)
 
     if (classCode === currentQuestion.passcode && selectedAnswerIndex != null) {
-      // console.warn("ok ok ok")
       { navigation.navigate('Profile', { question: currentQuestion.questionTitle, id: username + password, answer: selectedAnswerIndex, correctAnswer: currentQuestion.correctAnswerIndex, explained: currentQuestion.explanation, image: "https://drive.google.com/uc?export=view&id=" + currentQuestion.imagePath }) };
       return true;
     }
@@ -72,10 +65,6 @@ const ActivityPage = ({ navigation, route }, props) => {
       return false;
 
     }
-
-    // { Alert.alert("hello world") };
-    // return false;
-
   };
 
   return (
@@ -114,7 +103,6 @@ const ActivityPage = ({ navigation, route }, props) => {
         <View style={ComponentStyles.enter_code_submit_view}>
           <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", padding: 20 }}>
             <View>
-              {/* <Text style={{ marginBottom: 10 }}>Enter class code:</Text> */}
               <Text style={{ marginBottom: 10, fontSize: '18%', left: "2%" }}>Enter passcode:</Text>
               <TextInput
                 style={ComponentStyles.code_input_view}
@@ -126,15 +114,10 @@ const ActivityPage = ({ navigation, route }, props) => {
                 autoCorrect="false"
                 spellCheck="false"
               />
-              {/* <Text style={{ marginTop: 10, fontSize: '18%', left: "2%" }}>Enter passcode:</Text> */}
             </View>
             <TouchableOpacity
               onPress={() => {
                 const res = handleSubmit();
-                //console.log(res);
-                // if(res){
-                //   {navigation.navigate('ActivityPage', {username: name, password: password})};
-                // }
               }}
               style={{ backgroundColor: "#466AFF", borderRadius: 10, width: "40%", height: 70, alignItems: "center", justifyContent: "center", }}
             >
@@ -151,8 +134,6 @@ const ActivityPage = ({ navigation, route }, props) => {
 
       </ScrollView> : 
       <ScrollView>
-
-        {/* <Text>Loading...</Text> */}
         <NoAssignments></NoAssignments>
       </ScrollView>}
     </ScrollView>

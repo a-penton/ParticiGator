@@ -1,3 +1,4 @@
+// JSON object for sample question
 export default [
     {
         questionTitle: "AVL ROTATION",

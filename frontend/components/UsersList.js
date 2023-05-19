@@ -6,6 +6,7 @@ const fetchUsers = async () => {
   return await API.getAllUsers();
 }
 
+// Sample component to show list of all registered users (students)
 const UsersList = () => {
   const asyncUsers = useAsync(fetchUsers, []);
   const users = asyncUsers.data ?? null;
